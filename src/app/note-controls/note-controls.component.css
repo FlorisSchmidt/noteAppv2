@@ -1,0 +1,55 @@
+.container {
+    width: 20em;
+    height: auto;
+    margin: 10em 5em;
+}
+
+.controls {
+    overflow: hidden;
+    height: 50px;
+    position: relative;
+}
+
+input {
+    height: 44px;
+    width: 70%;
+    font-size: 30px;
+}
+
+#addButton {
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    height: 50px;
+    width: 30%;
+}
+
+li {
+    position: relative;
+    background-color: lightgray;
+    list-style-type: none;
+    padding: 8px;
+    line-height: 1em;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 90%;
+}
+
+li:hover {
+    background-color: gray;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
+#deleteButton {
+    border-left: 1px solid black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 18px;
+}
+
+#deleteButton:hover {
+    background-color: red;
+}

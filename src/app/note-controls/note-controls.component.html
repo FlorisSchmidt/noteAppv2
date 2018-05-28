@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="controls">
+    <input type="text" [(ngModel)]='addField' (keyup.enter)=addNote();>
+    <button id="addButton" (click)=addNote()>ADD</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let note of notes; let i = index" routerLink='/notes/{{ note.name }}'>
+      <label>
+        {{note.name}}
+      </label>
+      <span id="deleteButton" title="Delete note" (click)=deleteNote(i)>X</span>
+    </li>
+  </ul>
+</div>
