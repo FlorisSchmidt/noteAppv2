@@ -1,3 +1,6 @@
-<p>
-  {{ content }}
-</p>
+<div class='container'>
+  <textarea class='textfield' [(ngModel)]="content"></textarea>
+  <button class="saveButton" (click)=saveContent()>Save</button>
+  <button class="clearButton" (click)=clearField()>Clear</button>
+  <button class="undoButton" (click)=getNoteContent()>Undo</button>
+</div>

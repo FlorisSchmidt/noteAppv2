@@ -1,0 +1,6 @@
+div {
+    display: flex;
+    margin: 10em 1em;
+    border: 1px solid black;
+    height: 22em;
+}

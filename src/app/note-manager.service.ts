@@ -32,10 +32,15 @@ export class NoteManagerService {
     return this.getNotes();
   }
 
-  getNoteContent(x:string):string{
+  getNoteContent(name:string):string{
     let notes = this.getNotes();
-    let object = notes.find(j => j.name === x);
-    console.log(object);
+    let object = notes.find(j => j.name === name);
     return object.content;
+  }
+
+  saveNote(name:string, noteContent:string){
+    let notes = this.getNotes();
+    notes[notes.findIndex(j => j.name == name)].content = noteContent;
+    localStorage.setItem('notes', JSON.stringify(notes));
   }
 }

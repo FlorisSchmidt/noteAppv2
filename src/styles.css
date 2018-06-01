@@ -3,3 +3,18 @@
     font-family: Arial;
     font-size: 25px;
 }
+
+button {
+    border-radius: 3px;
+    background-color: rgb(59, 146, 175);
+}
+
+button:active {
+    background-color: gray;
+}
+/*--- not ideal ---*/
+app-note-display {
+    width: 70%;
+    height: 25em;
+}
+/*--- ---*/

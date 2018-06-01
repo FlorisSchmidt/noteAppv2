@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { NoteManagerService } from '../note-manager.service';
 
 @Component({
@@ -9,27 +9,34 @@ import { NoteManagerService } from '../note-manager.service';
   styleUrls: ['./note-display.component.css']
 })
 export class NoteDisplayComponent implements OnInit {
-
+  content:string;
+  
   constructor(
     private NoteManagerService: NoteManagerService,
     private ActivatedRoute: ActivatedRoute,
     private router: Router
   ) { }
-
-  private content:string;
-
   ngOnInit() {
     this.getNoteContent();
-    this.router.events.subscribe(e => {if(e instanceof NavigationStart){
+    this.router.events.subscribe(e => {if(e instanceof NavigationEnd){
       this.getNoteContent();
     }
     }
   )
+  
   }
 
   getNoteContent(){
-    console.log("getNoteContent ran")
-    const name = this.ActivatedRoute.snapshot.paramMap.get('name');
-    this.content =  this.NoteManagerService.getNoteContent(name);
+    const name=this.ActivatedRoute.snapshot.paramMap.get('name');
+    this.content=this.NoteManagerService.getNoteContent(name);
+  }
+
+  saveContent(){
+    const name=this.ActivatedRoute.snapshot.paramMap.get('name')
+    this.NoteManagerService.saveNote(name, this.content)
+  }
+
+  clearField(){
+    this.content='';
   }
 }

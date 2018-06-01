@@ -1,7 +1,6 @@
 .container {
     width: 20em;
-    height: auto;
-    margin: 10em 5em;
+    margin-left: 5em;
 }
 
 .controls {

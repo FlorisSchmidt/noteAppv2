@@ -1,0 +1,17 @@
+.container {
+    height: 75%;
+    margin: 1em 2em;
+}
+
+.textfield {
+    height: 90%;
+    width: 100%;
+    resize: none;
+    overflow: auto;
+}
+
+button {
+    height: 2em;
+    width: 20%;
+    margin: 1em 3em;
+}
