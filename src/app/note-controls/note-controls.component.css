@@ -7,6 +7,12 @@
     overflow: hidden;
     height: 50px;
     position: relative;
+    padding-top: 22px;
+}
+
+.list {
+    height: 18em;
+    overflow: auto;
 }
 
 input {
@@ -41,6 +47,9 @@ li:hover {
     cursor: pointer;
 }
 
+.activeLink {
+    background-color: darkgray;
+}
 #deleteButton {
     border-left: 1px solid black;
     position: absolute;

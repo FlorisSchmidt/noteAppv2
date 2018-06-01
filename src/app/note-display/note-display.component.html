@@ -1,6 +1,11 @@
 <div class='container'>
   <textarea class='textfield' [(ngModel)]="content"></textarea>
-  <button class="saveButton" (click)=saveContent()>Save</button>
-  <button class="clearButton" (click)=clearField()>Clear</button>
-  <button class="undoButton" (click)=getNoteContent()>Undo</button>
+  <div class='controls' *ngIf="editing">
+    <button class="clearButton" (click)=clearField()>Clear</button>
+    <button class="saveButton" (click)=saveContent()>Save</button>
+    <button class="undoButton" (click)=getNoteContent()>Undo</button>
+  </div>
+  <div class='controls' *ngIf="!editing">
+    <button class="editButton" (click)=toggleEdit()>Edit</button>
+  </div>
 </div>

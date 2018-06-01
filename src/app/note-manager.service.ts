@@ -43,4 +43,11 @@ export class NoteManagerService {
     notes[notes.findIndex(j => j.name == name)].content = noteContent;
     localStorage.setItem('notes', JSON.stringify(notes));
   }
+
+  noteExists(name){
+    name=name.trim();
+    if(this.getNotes().find(j=>j.name==name)==undefined){
+      return false;
+    } return true;
+  }
 }

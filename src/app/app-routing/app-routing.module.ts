@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NoteDisplayComponent } from '../note-display/note-display.component';
 
 const routes: Routes = [
-  { path: 'notes/:name', component: NoteDisplayComponent }
+  { path: 'notes/:name', component: NoteDisplayComponent },
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({

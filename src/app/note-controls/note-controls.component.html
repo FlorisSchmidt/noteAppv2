@@ -4,8 +4,11 @@
     <button id="addButton" (click)=addNote()>ADD</button>
   </div>
 
-  <ul>
-    <li *ngFor="let note of notes; let i = index" routerLink='/notes/{{ note.name }}'>
+  <ul class='list'>
+    <li *ngFor="let note of notes; let i = index" 
+    routerLink='/notes/{{ note.name }}'
+    routerLinkActive='activeLink'
+    >
       <label>
         {{note.name}}
       </label>

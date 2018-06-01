@@ -10,6 +10,7 @@ import { NoteManagerService } from '../note-manager.service';
 })
 export class NoteDisplayComponent implements OnInit {
   content:string;
+  editing:boolean=true;
   
   constructor(
     private NoteManagerService: NoteManagerService,
@@ -17,9 +18,13 @@ export class NoteDisplayComponent implements OnInit {
     private router: Router
   ) { }
   ngOnInit() {
-    this.getNoteContent();
+    try {this.getNoteContent();}
+    catch(e){
+      this.router.navigateByUrl('');
+    }
     this.router.events.subscribe(e => {if(e instanceof NavigationEnd){
       this.getNoteContent();
+      this.editing=false;
     }
     }
   )
@@ -33,10 +38,16 @@ export class NoteDisplayComponent implements OnInit {
 
   saveContent(){
     const name=this.ActivatedRoute.snapshot.paramMap.get('name')
-    this.NoteManagerService.saveNote(name, this.content)
+    this.NoteManagerService.saveNote(name, this.content);
+    this.editing=false;
+
   }
 
   clearField(){
     this.content='';
+  }
+
+  toggleEdit(){
+    this.editing?this.editing=false:this.editing=true;
   }
 }
